@@ -35,9 +35,17 @@ async function getPhoto() {
         console.log(photoArray); // check properties of photoArray
         displayPhotos();
     } catch (error) {
-
+        // Catch error here
     }
 }
+
+// Check to see if scrolling near bottom of page, load more photos
+window.addEventListener('scroll', function () {
+    console.log('scroll');
+    if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 1000) {
+        getPhoto();
+    }
+})
 
 getPhoto();
 
